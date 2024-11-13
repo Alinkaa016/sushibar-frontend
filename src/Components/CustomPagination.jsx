@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "../css/pagination.css"
 
-const CustomPagination = ({onPageChange, totalPages, currentPage}) => {
+const CustomPagination = ({ onPageChange, totalPages, currentPage }) => {
     const pageLimit = 5;  // Максимальное количество отображаемых кнопок страниц
     let startPage = Math.max(1, currentPage - Math.floor(pageLimit / 2));
     let endPage = Math.min(totalPages, currentPage + Math.floor(pageLimit / 2));
@@ -16,15 +16,14 @@ const CustomPagination = ({onPageChange, totalPages, currentPage}) => {
         }
     }
 
-    const pages = Array.from({length: (endPage - startPage + 1)}, (_, i) => startPage + i);
+    const pages = Array.from({ length: (endPage - startPage + 1) }, (_, i) => startPage + i);
 
     return (
         <nav>
             <ul className="pagination justify-content-center">
                 {currentPage > 1 && (
                     <li className="page-item">
-                        <Button variant="outline-dark" className="page-link1"
-                                onClick={() => onPageChange(currentPage - 1)}>
+                        <Button variant="outline-dark" className="page-link1" onClick={() => onPageChange(currentPage - 1)}>
                             Назад
                         </Button>
                     </li>
@@ -37,9 +36,7 @@ const CustomPagination = ({onPageChange, totalPages, currentPage}) => {
                                 1
                             </Button>
                         </li>
-                        {startPage > 2 && <li className="page-item"><span style={{color: "black"}}
-                                                                          className="page-link border-0">...</span>
-                        </li>}
+                        {startPage > 2 && <li className="page-item"><span style={{color:"black"}} className="page-link border-0">...</span></li>}
                     </>
                 )}
 
@@ -53,12 +50,9 @@ const CustomPagination = ({onPageChange, totalPages, currentPage}) => {
 
                 {endPage < totalPages && (
                     <>
-                        {endPage < totalPages - 1 && <li className="page-item"><span style={{color: "black"}}
-                                                                                     className="page-link border-0">...</span>
-                        </li>}
+                        {endPage < totalPages - 1 && <li className="page-item"><span style={{color:"black"}} className="page-link border-0">...</span></li>}
                         <li className="page-item">
-                            <Button variant="outline-dark" className="page-link1"
-                                    onClick={() => onPageChange(totalPages)}>
+                            <Button variant="outline-dark" className="page-link1" onClick={() => onPageChange(totalPages)}>
                                 {totalPages}
                             </Button>
                         </li>
@@ -67,8 +61,7 @@ const CustomPagination = ({onPageChange, totalPages, currentPage}) => {
 
                 {currentPage < totalPages && (
                     <li className="page-item">
-                        <Button variant="outline-dark" className="page-link1"
-                                onClick={() => onPageChange(currentPage + 1)}>
+                        <Button variant="outline-dark" className="page-link1" onClick={() => onPageChange(currentPage + 1)}>
                             Вперед
                         </Button>
                     </li>

@@ -5,10 +5,13 @@ import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import RegisterPage from './Pages/RegisterPage';
 import './transitions.css';
+import Catalog from "./Pages/Catalog";
+import CategoriesPage from "./Pages/CategoryPage";
 import {AnimatePresence, motion} from 'framer-motion';
+import ProductPage from "./Pages/ProductPage";
 
 const AnimatedRoutes = () => {
-    const location = useLocation();
+    const location = useLocation(); // Получаем текущее местоположение для ключа анимации
 
     const transitions = useTransition(location, {
         from: {opacity: 0, transform: 'translate3d(10%,0,0)'},
@@ -28,11 +31,17 @@ const AnimatedRoutes = () => {
     return (
         <>
             <AnimatePresence mode="wait">
+                {/*<div style={{position: 'absolute', width: '100%'}}>*/}
                 <Routes location={location} key={location.pathname}>
                     <Route path="/" element={<motion.div {...pageTransition}><HomePage/></motion.div>}/>
                     <Route path="/login" element={<motion.div {...pageTransition}><LoginPage/></motion.div>}/>
                     <Route path="/register" element={<motion.div {...pageTransition}><RegisterPage/></motion.div>}/>
+                    <Route path="/catalog/:category" element={<motion.div {...pageTransition}><Catalog/></motion.div>}/>
+                    <Route path="/categories" element={<motion.div {...pageTransition}><CategoriesPage/></motion.div>}/>
+                    <Route path="/product/:productId"
+                           element={<motion.div {...pageTransition}><ProductPage/></motion.div>}/>
                 </Routes>
+                {/*</div>*/}
             </AnimatePresence>
         </>
     )
@@ -45,6 +54,64 @@ const AppRouter = () => {
         </Router>
     );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export default AppRouter;

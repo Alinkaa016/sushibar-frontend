@@ -1,0 +1,9 @@
+@import "leaflet/dist/leaflet.css";
+.hover-text {
+    cursor: pointer;
+    color: black; /* начальный цвет текста */
+}
+
+.hover-text:hover {
+    color: #3869ba; /* цвет текста при наведении */
+}

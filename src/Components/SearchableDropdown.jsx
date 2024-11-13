@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {Dropdown, FormControl} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Dropdown, FormControl } from 'react-bootstrap';
 
-const SearchableDropdown = ({items, handleSelect}) => {
+const SearchableDropdown = ({ items, handleSelect}) => {
     const [filter, setFilter] = useState(''); // Использование строки для фильтра
     const [show, setShow] = useState(false);
 
@@ -12,12 +12,7 @@ const SearchableDropdown = ({items, handleSelect}) => {
 
     return (
         <Dropdown show={show} onToggle={() => setShow(!show)}>
-            <Dropdown.Toggle variant={"dark"} style={{
-                backgroundColor: "white",
-                color: "black",
-                borderRadius: "3px",
-                marginBottom: "5px"
-            }} id="dropdown-basic">
+            <Dropdown.Toggle variant={"dark"} style={{backgroundColor:"white", color:"black", borderRadius:"3px", marginBottom:"5px"}} id="dropdown-basic">
                 Выберите категорию
             </Dropdown.Toggle>
 
