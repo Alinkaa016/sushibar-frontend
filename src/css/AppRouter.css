@@ -1,0 +1,12 @@
+.d-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}

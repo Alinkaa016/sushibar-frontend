@@ -1,0 +1,70 @@
+.alert {
+    margin-top: 70px;
+    white-space: normal;
+    width: 40vw;
+}
+
+.login-page {
+    background-color: #f8f9fa; /* Светлый фон для страницы */
+    height: 100vh; /* Высота на весь экран */
+}
+
+.form-control {
+    border-radius: 0.25rem; /* Скругление углов */
+    height: calc(1.5em + 0.75rem + 2px); /* Высота элементов формы */
+}
+
+.button {
+    font-size: 1rem; /* Размер шрифта кнопки */
+    letter-spacing: 0.05em; /* Расстояние между буквами */
+}
+
+.registration-page {
+    background-color: #f8f9fa; /* Светлый фон для страницы */
+    height: 100vh; /* Высота на весь экран */
+}
+
+.two-factor-auth-page {
+    background-color: #f8f9fa; /* Светлый фон для страницы */
+    height: 100vh; /* Высота на весь экран */
+}
+
+.home-page {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+
+.hero-section {
+    padding-top: 20vh; /* Центрирование содержимого на странице по вертикали */
+    color: #000000; /* Цвет текста */
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5); /* Тень текста для улучшения читаемости на ярком фоне */
+}
+
+.hero-section h1 {
+    margin-bottom: 0.5em; /* Отступ заголовка от текста */
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.2em; /* Больший размер текста для лучшей видимости */
+    margin-bottom: 2em; /* Отступ текста от кнопки */
+}
+
+.hero-section .btn {
+    padding: 0.75em 2em; /* Большие отступы внутри кнопки */
+    font-size: 1.1em; /* Больший текст в кнопке */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Тень кнопки для добавления глубины */
+}
+
+input, textarea, select, form.form-control {
+    border: 1px solid #ffc107; /* Синий цвет обводки */
+    border-radius: 4px; /* Скругленные углы для эстетики */
+}
+
+@media (max-width: 575.98px) {
+    .alert {
+        width: 80vw;
+        box-sizing: border-box;
+    }
+}

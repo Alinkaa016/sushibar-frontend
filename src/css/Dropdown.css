@@ -1,0 +1,66 @@
+.custom-dropdown-container {
+    width: 100%;
+}
+
+@media (max-width: 400px) {
+    .custom-dropdown-container {
+        height: 100%;
+        min-width: 80px;
+    }
+}
+
+.custom-dropdown-header {
+    height: 40px;
+    padding: 5px 10px 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+@media (max-width: 400px) {
+    .custom-dropdown-header {
+        font-size: 11px;
+    }
+}
+
+.custom-dropdown-header:hover {
+    cursor: pointer;
+}
+
+.dropdown-list-container {
+    position: relative;
+}
+
+.dropdown-list-container ul {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    max-height: 250px;
+    padding: 0px;
+    margin: 0px;
+    overflow: auto;
+    font-size: 15px;
+}
+
+.dropdown-list-container ul li {
+    list-style: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.dropdown-list-container ul li:hover {
+    background-color: #bbbbbb;
+}
+
+.dropdown-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.dropdown-list.open {
+    max-height: 200px; /* Подстройте это значение под ваш случай */
+}
