@@ -1,16 +1,7 @@
-
-
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
-import {
-    containsInCart,
-    getAllCategories,
-    getProductsByCategory,
-    getProductsBySearch,
-    getSortProductsByPrice
-} from '../Utils/APIService';
+import {getAllCategories, getProductsBySearch} from '../Utils/APIService';
 import Header from '../Components/Header';
-import Footer from '../Components/Footer';
 import '../css/catalog.css';
 import {Button, Col, Container, Form, FormControl, Row} from "react-bootstrap";
 import SearchableDropdown from "../Components/SearchableDropdown";

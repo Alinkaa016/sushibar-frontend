@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Container, Form, Modal, Spinner} from 'react-bootstrap';
+import {Button, Container, Form, Spinner} from 'react-bootstrap';
 import * as APIService from '../Utils/APIService';
 import {useNavigate} from 'react-router-dom';
 import Header from "../Components/Header";

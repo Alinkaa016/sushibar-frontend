@@ -36,11 +36,6 @@ const RegisterPage = () => {
                     error = 'Пароль должен быть длиннее 8 символов и содержать хотя бы одну заглавную букву, одну строчную букву, одну цифру и один специальный символ';
                 }
                 break;
-            case 'patronymic':
-                if (value && !validator.matches(value, /^[A-Za-zА-Яа-яЁё\s-]+$/)) {
-                    error = 'Должно содержать только буквы';
-                }
-                break;
             case 'firstName':
             case 'lastName':
                 if (!validator.matches(value, /^[A-Za-zА-Яа-яЁё\s-]+$/)) {
@@ -128,14 +123,13 @@ const RegisterPage = () => {
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group controlId="formPatronymic" className="mb-3">
-                                <Form.Label>Отчество (необязательно)</Form.Label>
+                                <Form.Label>Отчество</Form.Label>
                                 <Form.Control
                                     type="text"
                                     placeholder="Введите отчество"
                                     name="patronymic"
                                     value={formData.patronymic}
                                     onChange={handleChange}
-                                    isInvalid={!!errors.patronymic}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     {errors.patronymic}

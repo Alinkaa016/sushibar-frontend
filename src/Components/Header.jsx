@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Container, Dropdown, Nav, Navbar, NavLink, Offcanvas} from 'react-bootstrap';
 import {Link, useNavigate} from 'react-router-dom';
 import "../css/header.css";
-import {getDeposit, getNewNotifications} from "../Utils/APIService";
+import {getDeposit} from "../Utils/APIService";
 import Badge from 'react-bootstrap/Badge';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBell, faCartShopping, faShoppingCart, faSignOutAlt, faUser} from '@fortawesome/free-solid-svg-icons';
@@ -55,7 +55,7 @@ const Header = () => {
             {isLargeScreen ? (
                 <Navbar bg="dark" variant="dark" expand="lg" className="header-nav">
                     <Container>
-                        <Navbar.Brand as={Link} to="/" className="navbar-brand-logo">Backlog</Navbar.Brand>
+                        <Navbar.Brand as={Link} to="/" className="navbar-brand-logo">Сушибар</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ms-auto">

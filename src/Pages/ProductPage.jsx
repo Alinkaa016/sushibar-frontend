@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Col, Container, FloatingLabel, Form, Image, Modal, Row, Table} from 'react-bootstrap';
+import {Button, Col, Container, FloatingLabel, Form, Modal, Row, Table} from 'react-bootstrap';
 import {useNavigate, useParams} from "react-router-dom";
 import Header from '../Components/Header';
 import {
@@ -48,11 +48,6 @@ const ProductPage = () => {
                     setProduct(productData);
                     setReviews(productData.reviewList);
                 }
-
-                const cartStatus = await containsInCart(productId);
-                if (isMounted) {
-                    setIsContain(cartStatus.success);
-                }
             } catch (err) {
                 if (isMounted) {
                     setErrorResponse(err.message);
@@ -94,19 +89,6 @@ const ProductPage = () => {
         }
     }, [reviews, productId]);
 
-    function handleAddToCartProduct(product) {
-        addToCart({product: product, quantity: 1})
-            .then(data => {
-                setReload(!reload);
-                setSuccessResponse(data.message);
-                setShowAlert(true);
-            })
-            .catch(err => {
-                setErrorResponse(err.message);
-                setShowAlert(true);
-            })
-    }
-
     function handleGoToCart() {
         navigate("/cart");
     }
@@ -119,49 +101,10 @@ const ProductPage = () => {
         setNewReview(false);
     };
 
-    const handleSaveClick = () => {
-        const reviewData = {
-            id: editingReview.id,
-            header: editHeader,
-            content: editContent,
-            user: editingReview.user,
-            createdAt: null,
-            updatedAt: null,
-            rating: editRating
-        };
-
-        updateReview(reviewData)
-            .then(data => {
-                setReload(!reload);
-                setEditingReview(null);
-                setSuccessResponse(data.message);
-                setShowAlert(true);
-            })
-            .catch(err => {
-                setErrorResponse(err.message);
-                setShowAlert(true);
-                console.error("Error updating or fetching product:", err);
-            });
-    };
-
     const handleChangeRating = (newRating) => {
         setEditRating(newRating);
 
     }
-
-    const handleDeleteClick = (reviewId) => {
-        deleteReview(reviewId)
-            .then(data => {
-                setReload(!reload);
-                setSuccessResponse(data.message);
-                setShowAlert(true);
-            })
-            .catch(error => {
-                setErrorResponse(error.message);
-                setShowAlert(true);
-                console.error('Ошибка удаления отзыва:', error);
-            });
-    };
 
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => {
@@ -178,30 +121,6 @@ const ProductPage = () => {
 
     };
 
-    const handleSaveCreateClick = () => {
-        const reviewData = {
-            header: editHeader,
-            content: editContent,
-            productId: product.id,
-            rating: editRating,
-        };
-
-        createReview(reviewData)
-            .then(data => {
-                setEditingReview(null);
-                setNewReview(false);
-                setReload(!reload);
-                setSuccessResponse(data.message);
-                setShowAlert(true);
-                handleCloseModal();
-            })
-            .catch(error => {
-                setErrorResponse(error.message);
-                setShowAlert(true);
-                console.error('Ошибка сохранения отзыва:', error);
-            });
-    };
-
     return (
         <>
             <Header/>
@@ -209,10 +128,10 @@ const ProductPage = () => {
                 <Container className="my-5 px-4">
                     <Row>
                         <Col md={6} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            <Image className="" style={{width: '80%'}}
-                                   // src={`data:image/jpeg;base64,${product.image}`}
-                                   src={product.image.includes('data:image') ? product.image.split(',')[1] : product.image}
-                                   alt={product.image}/>
+                            {/*<Image className="" style={{width: '80%'}}*/}
+                            {/*       // src={`data:image/jpeg;base64,${product.image}`}*/}
+                            {/*       src={product.image.includes('data:image') ? product.image.split(',')[1] : product.image}*/}
+                            {/*       alt={product.image}/>*/}
                         </Col>
                         <Col style={{display: "flex", flexDirection: "column"}} md={6}>
                             <h2>{product.name}</h2>
@@ -243,20 +162,12 @@ const ProductPage = () => {
                                 alignItems: "center"
                             }}>
                                 <Col style={{maxHeight: "min-content"}}>
-                                    {product.discountList.length > 0 &&
-                                        <h5 className="text-decoration-line-through ms-3" style={{ color: "#9d9d9d", display:"flex", justifyContent:"start", fontSize: "medium"}}>
-                                            {product.toLocaleString('ru-RU')} ₽
-                                        </h5>
-                                    }
                                     <h5 style={{textWrap: "nowrap"}}>{product.price.toLocaleString('ru-RU')} ₽</h5>
                                 </Col>
                                 {!isChildModeEnabled &&
                                     <Col style={{maxHeight: "min-content"}}>
-                                        {isContain ?
-                                            <Button onClick={() => handleGoToCart()} variant="primary"
-                                                    style={{textWrap: "nowrap"}}>В корзине</Button> :
-                                            <Button onClick={() => handleAddToCartProduct(product)} variant="primary"
-                                                    style={{textWrap: "nowrap"}}>Добавить в корзину</Button>}
+                                        <Button variant="primary"
+                                                style={{textWrap: "nowrap"}}>Добавить в корзину</Button>
                                     </Col>
                                 }
                             </Row>
@@ -328,7 +239,7 @@ const ProductPage = () => {
                                     <Button variant="secondary" onClick={handleCloseModal}>
                                         Закрыть
                                     </Button>
-                                    <Button variant="primary" onClick={handleSaveCreateClick}>
+                                    <Button variant="primary" onClick={() => {}}>
                                         Сохранить
                                     </Button>
                                 </Modal.Footer>
@@ -381,7 +292,7 @@ const ProductPage = () => {
                                                         </FloatingLabel>
                                                         <div className="mt-3">
                                                             <Button variant="primary"
-                                                                    onClick={handleSaveClick}>Сохранить</Button>
+                                                                    onClick={() => {}}>Сохранить</Button>
                                                             <Button variant="danger"
                                                                     onClick={() => setEditingReview(null)}
                                                                     className="ms-2">Отмена</Button>
@@ -405,7 +316,7 @@ const ProductPage = () => {
                                                             <button onClick={() => handleEditClick(review)}
                                                                     className="btn btn-primary">Редактировать
                                                             </button>
-                                                            <button onClick={() => handleDeleteClick(review.id)}
+                                                            <button onClick={() => {}}
                                                                     className="btn btn-danger ms-2">Удалить
                                                             </button>
                                                         </>

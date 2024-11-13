@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Dropdown, FormControl } from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Dropdown, FormControl} from 'react-bootstrap';
 
 const SearchableDropdown = ({ items, handleSelect}) => {
     const [filter, setFilter] = useState(''); // Использование строки для фильтра
