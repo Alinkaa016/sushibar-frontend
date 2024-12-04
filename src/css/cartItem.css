@@ -1,0 +1,44 @@
+.card {
+    width: 200%; /* Гарантирует, что карточка будет растягиваться на всю доступную ширину */
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title, .card-text {
+    margin-bottom: 0.5rem; /* Убираем лишние отступы для компактности */
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem; /* Подходящий размер кнопок */
+    margin: 0 5px; /* Отступы между кнопками */
+}
+
+.align-items-center {
+    align-items: center; /* Гарантирует вертикальное выравнивание */
+}
+
+.justify-content-end {
+    justify-content: flex-end; /* Выравнивание элементов к правому краю в колонке */
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card img {
+        max-width: 100%;
+    }
+
+    .card-body {
+        margin-left: 0;
+        text-align: center;
+    }
+}

@@ -1,0 +1,242 @@
+.title {
+    color: #343a40; /* Темно-серый цвет для заголовков */
+    font-weight: 700; /* Жирный шрифт для заголовка */
+}
+.text {
+    color: #343a40; /* Темно-серый цвет для заголовков */
+}
+.hover-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Плавный переход фона */
+}
+
+.hover-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Слегка темнее при наведении */
+}
+.brighter-text {
+    filter: brightness(120%); /* Делает цвета на 20% ярче */
+}
+
+.product-card{
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.pricing-actions-container{
+    display: flex;
+    justify-content: end;
+    margin-top: auto;
+}
+
+.product-image{
+    display: flex;
+    align-items: center;
+}
+
+.product-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-actions{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.image{
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    object-fit: contain;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.btn-del-container{
+    display: flex;
+    align-items: start;
+    flex-grow: 1;
+}
+
+.btn-del-col{
+    display: flex;
+    justify-content: end;
+    padding-right: 0;
+}
+
+.quantity-selectors{
+    padding-top: 10px;
+    max-width: fit-content;
+}
+
+.product-container{
+}
+
+.total-amount-container{
+    max-width: fit-content;
+}
+
+.total-container{
+    max-width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .total-amount-container{
+        max-width: fit-content;
+        text-align: start;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+@media (max-width: 575.98px) {
+    /* Здесь ваши стили для экранов xs и меньше */
+    .pricing-actions-container {
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+    }
+    .product-image{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .product-info{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+    .product-actions{
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    .product-card{
+        min-height: 200px;
+        display: flex;
+        flex-direction: row;
+    }
+    .image{
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        object-fit: cover;
+    }
+    .btn-del-container{
+        display: flex;
+        align-items: end;
+        flex-grow: 1;
+    }
+    .btn-del-col{
+        display: flex;
+        justify-content: start;
+        padding-right: 0;
+    }
+    .quantity-selectors{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        max-width: fit-content;
+    }
+    .product-container{
+
+    }
+    .shopping-cart{
+        /*width: 272px;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .total-amount-container{
+        max-width: fit-content;
+        text-align: start;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .total-container{
+    }
+    .total-amount-discount{
+        text-align: end;
+    }
+}
+
+@media (max-width: 486px) {
+    .total-container{
+    }
+    .total-amount-discount{
+        text-align: end;
+    }
+
+    .total-amount-container{
+        max-width: fit-content;
+        text-align: start;
+        display: flex;
+        flex-direction: row-reverse;
+
+    }
+    .shopping-cart{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .product-image{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .pricing-actions-container {
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+    }
+    .product-info{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+    .product-actions{
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    .product-card{
+        min-height: 200px;
+        display: flex;
+        flex-direction: row;
+    }
+    .image{
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        object-fit: cover;
+    }
+    .btn-del-container{
+        display: flex;
+        align-items: end;
+        flex-grow: 1;
+    }
+    .btn-del-col{
+        display: flex;
+        justify-content: start;
+        padding-right: 0;
+    }
+    .quantity-selectors{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        max-width: fit-content;
+    }
+}
+@media (max-width: 428px) {
+    .shopping-cart{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

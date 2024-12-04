@@ -9,6 +9,7 @@ import Catalog from "./Pages/Catalog";
 import CategoriesPage from "./Pages/CategoryPage";
 import {AnimatePresence, motion} from 'framer-motion';
 import ProductPage from "./Pages/ProductPage";
+import CartPage from "./Pages/CartPage";
 
 const AnimatedRoutes = () => {
     const location = useLocation(); // Получаем текущее местоположение для ключа анимации
@@ -38,6 +39,7 @@ const AnimatedRoutes = () => {
                     <Route path="/register" element={<motion.div {...pageTransition}><RegisterPage/></motion.div>}/>
                     <Route path="/catalog/:category" element={<motion.div {...pageTransition}><Catalog/></motion.div>}/>
                     <Route path="/categories" element={<motion.div {...pageTransition}><CategoriesPage/></motion.div>}/>
+                    <Route path="/cart" element={<motion.div {...pageTransition}><CartPage/></motion.div>}/>
                     <Route path="/product/:productId"
                            element={<motion.div {...pageTransition}><ProductPage/></motion.div>}/>
                 </Routes>

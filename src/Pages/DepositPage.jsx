@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {Button, Card, Container, Form, InputGroup} from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Button, Card, Container, Form, InputGroup } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Header from "../Components/Header";
 import PaymentPage from "./PaymentPage";
 import MyAlert from "../Components/MyAlert";
@@ -45,8 +45,8 @@ const DepositPage = () => {
     return (
         <>
             <Header/>
-            <Container className="d-flex justify-content-center align-items-center" style={{minHeight: '90vh'}}>
-                <Card style={{width: '400px'}} className="shadow-lg p-4 mb-5 bg-white rounded">
+            <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '90vh' }}>
+                <Card style={{ width: '400px' }} className="shadow-lg p-4 mb-5 bg-white rounded">
                     <Card.Body>
                         <Card.Title className="text-center">Пополнение депозита</Card.Title>
                         <Form onSubmit={handleSubmitCurr}>
@@ -74,9 +74,7 @@ const DepositPage = () => {
                     </Card.Body>
                 </Card>
                 <PaymentPage show={showModal} handleSubmit={handleSubmit} onHide={() => setShowModal(false)}/>
-                <MyAlert show={showAlert} variant={successResponse ? "success" : "danger"}
-                         handleHide={() => setShowAlert(false)}
-                         message={successResponse ? successResponse : errorResponse} header="Уведомление"/>
+                <MyAlert show={showAlert} variant={successResponse ? "success" : "danger"} handleHide={() => setShowAlert(false)} message={successResponse ? successResponse : errorResponse} header="Уведомление"/>
             </Container>
         </>
     );
