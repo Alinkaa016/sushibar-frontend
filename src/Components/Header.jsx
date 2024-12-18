@@ -83,7 +83,6 @@ const Header = () => {
                                             <Dropdown.Menu align="end">
                                                 <Dropdown.Item as={Link} to="/orders">Заказы</Dropdown.Item>
                                                 <Dropdown.Item as={Link} to="/profile">Профиль</Dropdown.Item>
-                                                <Dropdown.Item as={Link} to="/notifications">Уведомления</Dropdown.Item>
                                                 {!isChildModeEnabled &&
                                                     <Dropdown.Item as={Link} to="/cart">Корзина</Dropdown.Item>
                                                 }
@@ -135,14 +134,6 @@ const Header = () => {
                                                 <FontAwesomeIcon icon={faCartShopping} className="me-2"/> Корзина
                                             </Nav.Link>
                                         }
-                                        <Nav.Link as={Link} to="/notifications"
-                                                  className="d-flex align-items-center custom-black-text">
-                                            <FontAwesomeIcon icon={faBell} className="me-2"/> Уведомления
-                                            {notificationCount > 0 && (
-                                                <Badge bg="danger" text="dark"
-                                                       className="ms-2">{notificationCount}</Badge>
-                                            )}
-                                        </Nav.Link>
                                         <Nav.Item className="mt-3">
                                             <Button variant="outline-danger" onClick={handleLogout}
                                                     style={{width: '100%'}}>

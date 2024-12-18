@@ -1,0 +1,33 @@
+.card {
+    border: none; /* Убираем границы для более легкого вида */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Добавляем тень для современного вида */
+    margin-bottom: 20px; /* Добавляем отступ снизу */
+}
+
+.card-body {
+    padding: 1.5rem; /* Более просторное оформление внутри карточки */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Увеличиваем шрифт для заголовков карточек */
+    margin-bottom: 1rem; /* Отступ снизу заголовка */
+}
+
+.form-check-input {
+    cursor: pointer; /* Указатель, когда наводишь мышку на переключатель */
+}
+
+.card {
+    /*background-color: #f8f9fa;*/
+    border-radius: 8px;
+}
+
+.list-group-item {
+    background-color: transparent;
+    border: none;
+}
+
+.btn-primary, .btn-secondary {
+    letter-spacing: 0.05em;
+}
+

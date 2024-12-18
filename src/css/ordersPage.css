@@ -1,0 +1,10 @@
+.hover-link {
+    color: #000; /* Цвет текста в обычном состоянии */
+    text-decoration: none; /* Убираем подчёркивание */
+    transition: color 0.3s ease-in-out; /* Плавная анимация изменения цвета */
+}
+
+.hover-link:hover {
+    color: #007bff; /* Цвет текста при наведении */
+    text-decoration: underline; /* Добавляем подчёркивание при наведении */
+}

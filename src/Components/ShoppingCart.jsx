@@ -231,9 +231,6 @@ const ShoppingCart = ({ username }) => {
                                             <Row className="pb-2" style={{display:"flex", justifyContent:"end", fontSize: "medium", fontWeight: "650", textWrap: "nowrap", flexGrow: 1}}>
                                                 {CalculateProductPriceWithDiscounts(item.product).toLocaleString('ru-RU')} ₽
                                             </Row>
-                                            <Row>
-                                                <Button className="rounded-3" variant={'outline-dark'}>Купить</Button>
-                                            </Row>
                                         </Row>
                                     </Col>
                                 </Row>

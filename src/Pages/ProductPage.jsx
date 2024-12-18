@@ -11,11 +11,7 @@ import {
     getProductById,
     updateReview
 } from "../Utils/APIService";
-import StarRatings from 'react-star-ratings';
-
-import MyYandexMap from "../Components/MyYandexMap";
 import MyAlert from "../Components/MyAlert";
-import {CalculateProductPriceWithDiscounts, Total} from "../Components/ShoppingCart";
 
 const ProductPage = () => {
     const {productId} = useParams();
@@ -216,26 +212,6 @@ const ProductPage = () => {
                         </Col>
                         <Col style={{display: "flex", flexDirection: "column"}} md={6}>
                             <h2>{product.name}</h2>
-                            <Row style={{display: "flex", alignItems: "center"}}>
-                                <div className={"pb-2"} style={{width: 'fit-content'}}>
-                                    <StarRatings
-                                        rating={product.rating}
-                                        starRatedColor="#fd920f"
-                                        numberOfStars={5}
-                                        name='rating'
-                                        starDimension="20px"
-                                        starSpacing="1px"
-                                    />
-                                </div>
-                                <div style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    width: 'fit-content',
-                                    height: '100%'
-                                }}>
-                                    {product.reviewList.length}
-                                </div>
-                            </Row>
                             <Row className={"mt-2"} style={{
                                 display: "flex",
                                 flexDirection: 'row',
@@ -275,150 +251,6 @@ const ProductPage = () => {
                                     </tbody>
                                 </Table>
                             </div>
-                        </Col>
-                    </Row>
-                    <Row className="mt-4">
-                        <MyYandexMap data={product.storeList}/>
-                    </Row>
-                    <Row className="mt-4">
-                        <Col md={12}>
-                            <Modal show={showModal} onHide={handleCloseModal}>
-                                <Modal.Header closeButton>
-                                    <Modal.Title>Новый отзыв</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>
-                                    <Form>
-                                        <div className={"mb-3"}>
-                                            <StarRatings
-                                                rating={editRating}
-                                                starRatedColor="#fd920f"
-                                                numberOfStars={5}
-                                                name='rating'
-                                                starDimension="25px"
-                                                starSpacing="1px"
-                                                changeRating={(newRating) => handleChangeRating(newRating)} // Добавьте обработчик для изменения рейтинга
-                                            />
-                                        </div>
-                                        <FloatingLabel controlId="floatingInputHeader" label="Заголовок"
-                                                       className="mb-3">
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Введите заголовок"
-                                                value={editHeader}
-                                                onChange={e => setEditHeader(e.target.value)}
-                                            />
-                                        </FloatingLabel>
-                                        <FloatingLabel controlId="floatingTextareaContent" label="Содержание">
-                                            <Form.Control
-                                                as="textarea"
-                                                placeholder="Введите содержание отзыва"
-                                                style={{height: '100px'}}
-                                                value={editContent}
-                                                onChange={e => setEditContent(e.target.value)}
-                                            />
-                                        </FloatingLabel>
-                                    </Form>
-                                </Modal.Body>
-                                <Modal.Footer>
-                                    <Button variant="secondary" onClick={handleCloseModal}>
-                                        Закрыть
-                                    </Button>
-                                    <Button variant="primary" onClick={handleSaveCreateClick}>
-                                        Сохранить
-                                    </Button>
-                                </Modal.Footer>
-                            </Modal>
-                            <h4>Отзывы:</h4>
-                            {!isChildModeEnabled && !reviewPresent && !sortedReviews.some(review => review.id === reviewPresent) && (
-                                <Button className={"mb-3"} variant="primary" onClick={handleCreateClick}>Оставить
-                                    отзыв</Button>
-                            )}
-                            {(sortedReviews && sortedReviews.length > 0) ? (
-                                <div className="review-list">
-                                    {sortedReviews.map((review, index) => (
-                                        <div
-                                            key={index}
-                                            className={`card mb-3 ${reviewPresent === review.id ? "border border-2 border-primary" : "border border-2"}`}
-                                            style={{padding: "15px"}}
-                                        >
-                                            {editingReview && editingReview.id === review.id ? (
-                                                <Col>
-                                                    <Form>
-                                                        <div className={"mb-3"}>
-                                                            <StarRatings
-                                                                rating={editRating}
-                                                                starRatedColor="#fd920f"
-                                                                numberOfStars={5}
-                                                                name='rating'
-                                                                starDimension="20px"
-                                                                starSpacing="1px"
-                                                                changeRating={(newRating) => handleChangeRating(newRating)} // Добавьте обработчик для изменения рейтинга
-                                                            />
-                                                        </div>
-                                                        <FloatingLabel controlId="floatingInputHeader" label="Заголовок"
-                                                                       className="mb-3">
-                                                            <Form.Control
-                                                                type="text"
-                                                                placeholder="Введите заголовок"
-                                                                value={editHeader}
-                                                                onChange={e => setEditHeader(e.target.value)}
-                                                            />
-                                                        </FloatingLabel>
-                                                        <FloatingLabel controlId="floatingTextareaContent"
-                                                                       label="Содержание">
-                                                            <Form.Control
-                                                                as="textarea"
-                                                                placeholder="Введите содержание отзыва"
-                                                                style={{height: '100px'}}
-                                                                value={editContent}
-                                                                onChange={e => setEditContent(e.target.value)}
-                                                            />
-                                                        </FloatingLabel>
-                                                        <div className="mt-3">
-                                                            <Button variant="primary"
-                                                                    onClick={handleSaveClick}>Сохранить</Button>
-                                                            <Button variant="danger"
-                                                                    onClick={() => setEditingReview(null)}
-                                                                    className="ms-2">Отмена</Button>
-                                                        </div>
-                                                    </Form>
-                                                </Col>
-                                            ) : (
-                                                <div>
-                                                    <StarRatings
-                                                        rating={review.rating}
-                                                        starRatedColor="#fd920f"
-                                                        numberOfStars={5}
-                                                        name='rating'
-                                                        starDimension="20px"
-                                                        starSpacing="1px"
-                                                    />
-                                                    <h5>{review.header}</h5>
-                                                    <p>{review.content}</p>
-                                                    {!isChildModeEnabled && reviewPresent && reviewPresent === review.id && (
-                                                        <>
-                                                            <button onClick={() => handleEditClick(review)}
-                                                                    className="btn btn-primary">Редактировать
-                                                            </button>
-                                                            <button onClick={() => handleDeleteClick(review.id)}
-                                                                    className="btn btn-danger ms-2">Удалить
-                                                            </button>
-                                                        </>
-                                                    )}
-                                                    {reviewPresent && reviewPresent !== review.id && (
-                                                        <footer className="blockquote-footer">
-                                                            Оставлен <cite
-                                                            title="Source Title">{review.user.firstName} {review.user.lastName}</cite>
-                                                        </footer>
-                                                    )}
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <p>Отзывов пока нет.</p>
-                            )}
                         </Col>
                     </Row>
                     <MyAlert show={showAlert} variant={successResponse ? "success" : "danger"}

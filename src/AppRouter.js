@@ -10,6 +10,11 @@ import CategoriesPage from "./Pages/CategoryPage";
 import {AnimatePresence, motion} from 'framer-motion';
 import ProductPage from "./Pages/ProductPage";
 import CartPage from "./Pages/CartPage";
+import PaymentPage from "./Pages/PaymentPage";
+import DepositPage from "./Pages/DepositPage";
+import CheckoutPage from "./Pages/CheckoutPage";
+import OrdersPage from "./Pages/OrdersPage";
+import ProfilePage from "./Pages/ProfilePage";
 
 const AnimatedRoutes = () => {
     const location = useLocation(); // Получаем текущее местоположение для ключа анимации
@@ -38,8 +43,13 @@ const AnimatedRoutes = () => {
                     <Route path="/login" element={<motion.div {...pageTransition}><LoginPage/></motion.div>}/>
                     <Route path="/register" element={<motion.div {...pageTransition}><RegisterPage/></motion.div>}/>
                     <Route path="/catalog/:category" element={<motion.div {...pageTransition}><Catalog/></motion.div>}/>
-                    <Route path="/categories" element={<motion.div {...pageTransition}><CategoriesPage/></motion.div>}/>
                     <Route path="/cart" element={<motion.div {...pageTransition}><CartPage/></motion.div>}/>
+                    <Route path="/categories" element={<motion.div {...pageTransition}><CategoriesPage/></motion.div>}/>
+                    <Route path="/orders" element={<motion.div {...pageTransition}><OrdersPage/></motion.div>}/>
+                    <Route path="/payment/:amount" element={<motion.div {...pageTransition}><PaymentPage/></motion.div>}/>
+                    <Route path="/deposit" element={<motion.div {...pageTransition}><DepositPage/></motion.div>}/>
+                    <Route path="/checkout" element={<motion.div {...pageTransition}><CheckoutPage/></motion.div>}/>
+                    <Route path="/profile" element={<motion.div {...pageTransition}><ProfilePage/></motion.div>}/>
                     <Route path="/product/:productId"
                            element={<motion.div {...pageTransition}><ProductPage/></motion.div>}/>
                 </Routes>
